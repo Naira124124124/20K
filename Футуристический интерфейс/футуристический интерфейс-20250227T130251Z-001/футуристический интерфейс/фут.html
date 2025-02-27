@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Футуристический Интерфейс</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0ff;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+	  background-image: url('1.jpg'); /* Добавляем фон */
+      background-size: cover;  /*  Масштабируем картинку */
+    }
+    
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      position: relative;
+      width: 80%;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #0ff;
+      text-align: center;
+    }
+
+    .data-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .data-item {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 200px;
+      text-align: center;
+      position: relative;
+    }
+
+    .data-item h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 2px #0ff;
+    }
+
+    .data-item p {
+      font-size: 1em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 2px #0ff;
+    }
+
+    .data-item .value {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #0ff;
+      text-shadow: 0 0 2px #0ff;
+    }
+
+    button {
+      background-color: #0ff;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00a0ff;
+    }
+
+    /* Неоновые элементы */
+    .neon-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #0ff;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      filter: blur(5px);
+      animation: neon-glow 2s linear infinite;
+    }
+
+    .neon-line-vertical {
+      width: 2px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .neon-circle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #0ff;
+      top: 10%;
+      left: 10%;
+      animation: spin 3s linear infinite;
+    }
+
+    .neon-square {
+	      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #0ff;
+      top: 80%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+      animation: blink 1s linear infinite;
+    }
+
+    @keyframes neon-glow {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Добавлены стили для "Матричного" эффекта */
+    .matrix-code {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      font-size: 12px;
+      color: #0ff;
+      text-shadow: 0 0 2px #0ff;
+      animation: matrix-fall 3s linear infinite;
+    }
+
+    @keyframes matrix-fall {
+      0% {
+        transform: translate(0, 0) translateY(-100%);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* Стили для выделения главных надписей */
+    .data-item h2, .data-item p, .data-item .value {
+      /* Добавлен эффект полупрозрачного свечения */
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      /* Можно добавить прозрачный контур */
+      outline: 2px solid rgba(0, 255, 255, 0.5);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Футуристический Интерфейс</h1>
+
+    <div class="data-container">
+      <div class="data-item">
+        <h2>Температура</h2>
+        <p>25°C</p>
+        <p class="value">25°C</p>
+      </div>
+      <div class="data-item">
+        <h2>Влажность</h2>
+        <p>60%</p>
+        <p class="value">60%</p>
+      </div>
+      <div class="data-item">
+        <h2>Давление</h2>
+        <p>1013 мбар</p>
+        <p class="value">1013 мбар</p>
+      </div>
+    </div>
+
+    <button>Активировать</button>
+
+    <div class="neon-line"></div>
+    <div class="neon-line neon-line-vertical"></div>
+    <div class="neon-circle"></div>
+    <div class="neon-square"></div>
+
+    <!-- Матричный код -->
+    <div class="matrix-code">
+      <span>01001001 00100000 01000010 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01000001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01001001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01000001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01001001 00100000 01000010 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+	  <span>01001001 00100000 01000010 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01000001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01001001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01000001 00100000 01001110 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+      <span>01001001 00100000 01000010 01001001 01010100 01001111 01010101 01000110 01010100 01001001</span>
+    </div>
+  </div>
+
+</body>
+</html>
